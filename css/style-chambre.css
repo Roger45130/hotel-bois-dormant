@@ -1,0 +1,219 @@
+@import url(reset.css);
+@import url(variable.css);
+@import url(nav.css);
+@import url(footer.css);
+@font-face {
+    font-family: 'space_grotesklight';
+    src: url('../Assets/fonts/spacegrotesk-variablefont_wght-webfont.woff2') format('woff2'),
+         url('../Assets/fonts/spacegrotesk-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ********** CCS GENERAL ********** */
+
+html, body{
+    font-size: 16px;
+    font-family: var(--font-family);
+}
+
+/* ********** CCS MAIN ********** */
+
+.main{
+    padding: 64px;
+}
+
+.chambre{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 64px;
+    margin-bottom: 64px;
+}
+
+.chambre__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    row-gap: var(--spacing-md);
+}
+
+.chambre__content__caracteristique{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: var(--spacing-md);
+}
+
+.chambre__title{
+    font-size: var(--font-size-subtitle);
+    font-weight: var(--font-weight-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.chambre__picture__item{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+}
+
+.chambre__price{
+    font-size: var(--font-size-lg);
+    color: rgb(63, 63, 63);
+    font-weight: var(--font-weight-xl);
+}
+
+.btn{
+    background: var(--bg-btn);
+    color: var(--text-color-primary-white);
+    text-decoration: none;
+    padding: var(--spacing-xs);
+    width: 100px;
+    text-align: center;
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-xl);
+}
+
+.picture__slyder{
+    margin-bottom: 64px;    
+    border-radius: var(--radius-md);
+    width: 100%;
+}
+
+.chambre__title_model{
+    font-size: var(--font-size-subtitle);
+    font-weight: var(--font-weight-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.chambre__content_model{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: var(--spacing-xl);
+}
+
+.chambre__card_model{
+    position: relative;
+}
+
+.chambre__card__link__model{
+    text-decoration: none;
+    color: var(--text-color-primary-white);
+}
+
+.chambre__card__title__model{
+    color: var(--text-color-primary-dark);
+    font-size: var(--font-size-subtitle);
+    font-weight: var(--font-weight-xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.chambre__card__content__model{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: var(--spacing-md) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(203, 192, 192, 0.4);
+    width: 100%;
+}
+
+.chambre__picture__model{
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-md);
+}
+
+.footer{
+    height: 300px;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width:1024px) {
+    .chambre__content_model{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto 300px;
+        row-gap: 2rem;
+    }
+
+    .chambre__card_model:last-child{
+        grid-column: 1 / 3;
+    }
+
+    .chambre__picture__model{
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width:768px) {
+    /* on positionne le logo et la nav en colonne, donc le logo se trouve au dessus de la nav */
+    .header__nav{
+        padding: 1rem;
+        flex-direction: column;
+    }
+
+    .link__logo{
+        margin-bottom: 1rem;
+    }
+
+    /* on positiionne en colonne tous les liens de la nav et on aligne au centre horizontalement */
+    .nav__list{
+        flex-direction: column;
+        align-items: center;
+        row-gap: 0.5rem;
+    }
+
+    .nav__link {
+        margin-left: 0;
+    }
+
+    .main{
+        padding: 32px 1rem;
+    }
+
+    /* on positionne en colonne les sections chambres */
+    .chambre{
+        grid-template-columns: 1fr;
+    }
+
+    .chambre__picture__item{
+        height: 300px;
+        margin-bottom: 1rem;
+    }
+
+    .picture__carracterisitque{
+        order: 1;
+    }
+
+    .chambre__content__caracteristique{
+        order: 2;
+    }
+
+    .footer{
+        height: 100%;
+        flex-direction: column;
+        padding: 32px 0;
+    }
+
+    .footer__content{
+        width: 100%;
+        align-items: center;
+        margin-bottom: 1.5
+        rem;
+    }
+
+    .footer__content:last-child{
+        margin-bottom: 0;
+    }
+
+    .footer__nav{
+        align-items: center;
+    }
+
+    .footer__adresse, .footer__phone{
+        text-align: center;
+    }
+}
